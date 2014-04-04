@@ -1,11 +1,13 @@
 class Person < ActiveRecord::Base
 
-# attr_accessor :first_name, :last_name, :birthdate, :license, :drinks, :image_url
-
-
 def name
-name = self.first_name + " " + self.last_name
-return name
+	name = self.first_name + " " + self.last_name
+	return name
+end
+
+def birthday
+	birthday = self.birthdate.to_s 
+	return birthday
 end
 
 end
