@@ -28,7 +28,29 @@ def drive_a_car
 
 	if age < 18
 		return "Not yet youngin"
+	elsif age >= 18 && age < 21
+		if self.license == true 
+			return true
+		else 
+			return false
+		end
+	else age >= 21
+		if self.drinks > 3
+			return "Looks like a cab for you tonight"
+		else
+			return true
+		end
 	end
 end
+
+def sober_up
+
+	if self.drinks == 0
+		return self.drinks 
+	else
+		return self.drinks -=1
+	end
+end
+
 
 end

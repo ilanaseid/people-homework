@@ -45,13 +45,34 @@ describe Person do
       junior = Person.new(birthdate: '2013-01-01')
       expect(junior.drive_a_car).to eq("Not yet youngin")
     end
+    it 'if they are 18 and they have a license then they can drive' do
+      alex = Person.new(birthdate: '1996-01-01', license: false)
+      alex_w_license = Person.new(birthdate: '1996-01-01', license: true)
+      expect(alex.drive_a_car).to eq(false)
+      expect(alex_w_license.drive_a_car).to eq(true)
+    end
+    it 'if they are over 18 and they have a license then they can drive' do
+      junior2 = Person.new(birthdate: '1994-01-01', license: true)
+      expect(junior2.drive_a_car).to eq(true)
+    end
+     it 'if they are over 21, have a license, and are drunk then the string "Looks like a cab for you tonight" is returned' do
+      drunk_driver = Person.new(birthdate: '1978-01-01', license: true, drinks: 4)
+      expect(drunk_driver.drive_a_car).to eq("Looks like a cab for you tonight")
+    end
+  end
+
+  describe "sober_up" do
+    it "if they have any drinks, it decreases it by 1" do
+    ilana.sober_up
+    expect(ilana.drinks).to eq(1)
+    end
+
+    it "they have no drinks, nothing happens" do 
+    junior = Person.new(drinks: 0)
+    junior.sober_up
+    expect(junior.drinks).to eq(0)
+    end
   end
 
 end
 
-
-# #drive_a_car`
-#   * 
-#   * if they are 18 and they have a license then they can drive 
-#   * if they are over 18 and have a license then they can drive
-#   * if they are over 21, have a license, and are drunk then the string "Looks like a cab for you tonight" is returned 
