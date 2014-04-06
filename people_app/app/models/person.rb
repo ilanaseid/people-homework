@@ -11,7 +11,7 @@ def birthday
 end
 
 def have_a_drink
-	age = Date.today.year - self.birthdate.year
+	age = (Date.today.year - self.birthdate.year) + ((Date.today.month - self.birthdate.month)/12) + ((Date.today.day - self.birthdate.day)/30)
 	@drinks = self.drinks
 	
 	if age < 21
@@ -24,7 +24,7 @@ def have_a_drink
 end
 
 def drive_a_car
-	age = Date.today.year - self.birthdate.year
+	age = (Date.today.year - self.birthdate.year) + ((Date.today.month - self.birthdate.month)/12) + ((Date.today.day - self.birthdate.day)/30)
 
 	if age < 18
 		return "Not yet youngin"

@@ -11,8 +11,6 @@ describe Person do
     birthdate: '1985-07-26'
   })}
 
-  junior =
-
   describe '#name' do
     it "display's the person's full name" do
       expect(ilana.name).to eq("Ilana Seid")
@@ -28,7 +26,7 @@ describe Person do
   describe '#have_a_drink' do
     it "should increase the number stored in the drinks attribute if they are over 21" do
       ilana.have_a_drink
-     expect(ilana.drinks).to eq(3) 
+      expect(ilana.drinks).to eq(3) 
     end
     it 'if they are under 21 then the string "Wait a few years" is returned' do
       junior = Person.new(birthdate: '2013-01-01')
